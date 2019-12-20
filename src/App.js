@@ -1,0 +1,105 @@
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+
+let displayResult = {
+  display: "inherit",
+  marginTop: "40px"
+}
+
+let hideResult = {
+  display: "none"
+}
+
+const SearchResults = ({ articles }) => 
+  <div className="content search-result">
+    {articles.map((article, i) => (
+      <div key={i} className="search-result-item">
+        <a href={article.url} target="_blank">
+          <img
+            className="search-thumbnail"
+            src={article.urlToImage}
+            title={article.source.name}
+          />
+        </a>
+      </div>
+    ))}
+  </div>
+
+
+class App extends React.Component {
+
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+      apiResults: [],
+      totalResults: "",
+      loading: false
+    };
+
+    this.beginSearch = this.beginSearch.bind(this);
+  }
+
+  beginSearch(e) {
+
+    e.preventDefault();
+
+    this.setState({
+      loading: true
+    })
+
+    fetch(
+      `https://newsapi.org/v2/top-headlines?q=${
+        e.target.value
+      }&category=sports&pageSize=10&apiKey=f908b2c35b3e4981b5151bc85522f954`
+    )
+      .then(data => data.json())
+      .then(data => {
+        console.log(data)
+        this.setState({
+          apiResults: data.articles ? data.articles : [],
+          totalResults: data.totalResults,
+          loading: false
+        });
+      });
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <div className="card">
+          <header className="card-header">
+            <p className="card-header-title">Latest news </p>
+          </header>
+          <div className="card-content">
+            <div className="content">
+              <input
+                className="input"
+                maxLength="50"
+                type="text"
+                placeholder="keyword"
+                onChange={this.beginSearch}
+              />
+               <p style={{ textAlign:"center"}}>{this.state.loading ? 'Loading...' : ''}</p>
+            </div>
+          </div>
+          <footer className="card-footer">
+            <small className="search-api-info">
+              live api calls to newapi.org
+            </small>
+          </footer>
+        </div>
+        <div className="card" style={this.state.totalResults > 0 ? displayResult: hideResult}>
+          <div className="card-content">
+            <SearchResults articles={this.state.apiResults} />
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;
