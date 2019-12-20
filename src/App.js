@@ -70,7 +70,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card">
+        <div className="card animated bounceInRight delay-2s">
           <header className="card-header">
             <p className="card-header-title"><span className="tag is-success"> <i className="far fa-newspaper" style={{marginRight:"5px"}}></i> {"  "} Latest sports news</span> </p>
           </header>
