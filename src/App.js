@@ -72,7 +72,7 @@ class App extends React.Component {
       <React.Fragment>
         <div className="card">
           <header className="card-header">
-            <p className="card-header-title">Latest news </p>
+            <p className="card-header-title"><span className="tag is-success"> <i className="far fa-newspaper" style={{marginRight:"5px"}}></i> {"  "} Latest sports news</span> </p>
           </header>
           <div className="card-content">
             <div className="content">
@@ -88,7 +88,7 @@ class App extends React.Component {
           </div>
           <footer className="card-footer">
             <small className="search-api-info">
-              live api calls to newapi.org
+              Live api calls via newapi.org
             </small>
           </footer>
         </div>
