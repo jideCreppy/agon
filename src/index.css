@@ -9,6 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 2000px;
+  margin: 0px auto;
 }
 
 code {
@@ -94,7 +96,7 @@ main {
 .reflection {
   width: 90%;
   height: 70%;
-  margin-left: 35px;
+  margin-left: 5px;
   position: relative;
   background: url("/images/dunk-min.jpg");
   background-position: bottom;
