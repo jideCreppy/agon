@@ -88,7 +88,7 @@ class App extends React.Component {
           </div>
           <footer className="card-footer">
             <small className="search-api-info">
-              Live api calls via newapi.org
+              Live api calls via newapi.org. {" "}<i className="fab fa-facebook-square"></i> <i className="fab fa-twitter-square"></i> <i className="fab fa-instagram"></i> <i className="fab fa-youtube"></i>
             </small>
           </footer>
         </div>
