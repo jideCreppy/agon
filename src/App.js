@@ -16,13 +16,13 @@ const SearchResults = ({ articles }) =>
   <div className="content search-result">
     {articles.map((article, i) => (
       <div key={i} className="search-result-item">
-        <a href={article.url} target="_blank">
+        <a href={article.url} target="_blank" style={{color:"gray"}}>
           <div
             className="search-thumbnail"
-            style={{ backgroundImage: `url(${article.urlToImage})`, backgroundSize:"cover", backgroundPosition:"center"}}
+            style={{ backgroundImage: `url(${article.urlToImage})`, backgroundSize:"cover", backgroundPosition:"center",borderRadius:"10px"}}
             title={article.source.name}>
            </div>
-          <small>{article.title.substring(0,10) + "..."}</small>
+          <small>{article.title.substring(0,10).toLowerCase() + "..."}</small>
         </a>
       </div>
     ))}
@@ -59,7 +59,6 @@ class App extends React.Component {
     )
       .then(data => data.json())
       .then(data => {
-        console.log(data)
         this.setState({
           apiResults: data.articles ? data.articles : [],
           totalResults: data.totalResults,
