@@ -30,10 +30,11 @@ nav {
 }
 
 nav .logo {
-  flex-basis: 75%;
+  width: 70%;
   font-family: Bitter;
   font-weight: 700;
   font-size: 2rem;
+  flex-shrink: 2;
 }
 
 .logo ~ div {
@@ -49,6 +50,7 @@ main {
 
 .image-showcase {
   width: 50%;
+  max-width:70%;
 }
 
 .search-form {
@@ -87,7 +89,7 @@ main {
 =======================================*/
 
 .reflection {
-  width: 800px;
+  width: 90%;
   height: 70%;
   margin-left: 35px;
   position: relative;
@@ -97,28 +99,29 @@ main {
   box-shadow: 0px 50px 70px rgba(0, 0, 0, 0.3),
     0px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-
 }
 
 .reflection::after {
   content: "";
   background-image: inherit;
-  width: inherit;
-  height: 40%;
+  width: 100%;
+  height: 39%;
   position: absolute;
-  bottom: -38%;
+  bottom: -39%;
   transform: scaleY(-1);
   background-position: bottom;
   background-size: cover;
   opacity: 0.5;
+  border-radius: 20px;
 }
 
 .reflection::before {
   content: "";
-  width: inherit;
+  width: 100%;
   height: 42%;
   position: absolute;
   bottom: -42%;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), white);
   z-index: 1;
+  border-radius: 20px;
 }
