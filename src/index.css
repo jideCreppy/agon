@@ -127,8 +127,8 @@ figcaption {
   transform: scaleY(-1);
   background-position: bottom;
   background-size: cover;
-  opacity: 0.5;
-  border-radius: 20px;
+  opacity: 0.3;
+  border-radius: 7px;
 }
 
 .reflection::before {
@@ -137,7 +137,7 @@ figcaption {
   height: 42%;
   position: absolute;
   bottom: -42%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), white);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), white);
   z-index: 1;
-  border-radius: 20px;
+  border-radius: 7px;
 }
