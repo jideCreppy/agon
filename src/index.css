@@ -68,7 +68,7 @@ main {
 .search-result {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -77,6 +77,7 @@ main {
   height: 100px;
   overflow:hidden;
   width: 100px;
+  margin: 0 2px 2px 2px;
 }
 
 #root {
