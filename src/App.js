@@ -15,7 +15,7 @@ let hideResult = {
 const SearchResults = ({ articles }) => 
   <div className="content search-result">
     {articles.map((article, i) => (
-      <div key={i} className="search-result-item">
+      <div key={i} className="search-result-item animated fadeIn">
         <a href={article.url} target="_blank" style={{color:"gray"}}>
           <div
             className="search-thumbnail"
