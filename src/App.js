@@ -17,12 +17,12 @@ const SearchResults = ({ articles }) =>
     {articles.map((article, i) => (
       <div key={i} className="search-result-item">
         <a href={article.url} target="_blank">
-          <img
+          <div
             className="search-thumbnail"
-            src={article.urlToImage}
-            title={article.source.name}
-          />
-          <small style={{position:"relative",top:"-10px"}}>{article.title.substring(0,10) + "..."}</small>
+            style={{ backgroundImage: `url(${article.urlToImage})`, backgroundSize:"cover", backgroundPosition:"center"}}
+            title={article.source.name}>
+           </div>
+          <small>{article.title.substring(0,10) + "..."}</small>
         </a>
       </div>
     ))}

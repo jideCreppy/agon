@@ -73,6 +73,7 @@ main {
 .search-result-item {
   border: 1px solid white;
   height: 100px;
+  overflow:hidden;
   width: 100px;
 }
 
@@ -81,7 +82,9 @@ main {
 }
 
 .search-thumbnail {
-  max-height: 80px;
+  height: 70px;
+  width:100px;
+  background-color: rgba(244,164,96,.1);
 }
 
 
