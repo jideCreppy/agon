@@ -22,6 +22,7 @@ const SearchResults = ({ articles }) =>
             src={article.urlToImage}
             title={article.source.name}
           />
+          <small style={{position:"relative",top:"-10px"}}>{article.title.substring(0,10) + "..."}</small>
         </a>
       </div>
     ))}
@@ -54,7 +55,7 @@ class App extends React.Component {
     fetch(
       `https://newsapi.org/v2/top-headlines?q=${
         e.target.value
-      }&category=sports&pageSize=10&apiKey=f908b2c35b3e4981b5151bc85522f954`
+      }&category=sports&pageSize=12&apiKey=f908b2c35b3e4981b5151bc85522f954`
     )
       .then(data => data.json())
       .then(data => {
