@@ -52,12 +52,22 @@ main {
 
 figcaption {
   position: relative;
-  bottom: 430px;
-  left:20px;
+  bottom: 420px;
+  left:40px;
   background-color:rgba(220, 220, 220, .2);
-  width:298px;
+  width:325px;
   padding: 10px;
   border-radius: 2px;
+}
+
+.caption-header {
+  font-size: 1.2rem;
+  color:#000;
+  margin: 1px 0 10px 1px
+}
+
+.reflection, .search-form {
+  margin-left:20px;
 }
 
 .image-showcase {
@@ -107,7 +117,6 @@ figcaption {
 .reflection {
   width: 90%;
   height: 70%;
-  margin-left: 5px;
   position: relative;
   background: url("/images/dunk-min.jpg");
   background-position: bottom;
