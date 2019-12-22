@@ -60,6 +60,10 @@ figcaption {
   border-radius: 2px;
 }
 
+.no-shadow {
+  box-shadow: 0 0em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
 .caption-header {
   font-size: 1.2rem;
   color:#000;
@@ -102,12 +106,6 @@ figcaption {
 
 #root {
   margin-top: -17px;
-}
-
-.search-thumbnail {
-  height: 70px;
-  width:100px;
-  background-color: rgba(244,164,96,.1);
 }
 
 

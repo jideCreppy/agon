@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.search-thumbnail {
+  height: 70px;
+  width:100px;
+  background-color: rgba(244,164,96,.1);
+  opacity: 0.94;
+}

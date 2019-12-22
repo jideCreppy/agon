@@ -70,7 +70,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card animated bounceInRight delay-2s">
+        <div className="card no-shadow animated bounceInRight delay-2s">
           <header className="card-header">
             <p className="card-header-title"><span className="tag is-success"> <i className="far fa-newspaper" style={{marginRight:"5px"}}></i> {"  "} Latest sports news</span> </p>
           </header>
@@ -92,7 +92,7 @@ class App extends React.Component {
             </small>
           </footer>
         </div>
-        <div className="card" style={this.state.totalResults > 0 ? displayResult: hideResult}>
+        <div className="card no-shadow" style={this.state.totalResults > 0 ? displayResult: hideResult}>
           <div className="card-content">
             <SearchResults articles={this.state.apiResults} />
           </div>
