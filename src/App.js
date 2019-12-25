@@ -4,7 +4,7 @@ import "./App.css";
 
 let displayResult = {
   display: "inherit",
-  marginTop: "40px"
+  marginTop: "10px"
 };
 
 let hideResult = {
@@ -12,7 +12,7 @@ let hideResult = {
 };
 
 let selectFilter = {
-  marginTop:"10px"
+  marginTop:"5px"
 }
 
 const SearchResults = ({ articles }) => (
@@ -91,6 +91,9 @@ class App extends React.Component {
   updateSources = e => {
 
     if(e.target.value === "filterLabel"){
+      this.setState({
+        apiResults: this.state.backUpResults
+      });
       return
     }
     let target = this.state.backUpResults;
@@ -160,10 +163,10 @@ class App extends React.Component {
           <footer className="card-footer">
             <small className="search-api-info">
               Live api calls via newapi.org.{" "}
-              <i className="fab fa-facebook-square"></i>
-              <i className="fab fa-twitter-square"></i>
-              <i className="fab fa-instagram"></i>
-              <i className="fab fa-youtube"></i>
+              <i className="fab fa-facebook-square"></i>{" "}
+              <i className="fab fa-twitter-square"></i>{" "}
+              <i className="fab fa-instagram"></i>{" "}
+              <i className="fab fa-youtube"></i>{" "}
             </small>
           </footer>
         </div>
