@@ -4,7 +4,7 @@ import "./App.css";
 
 let displayResult = {
   display: "inherit",
-  marginTop: "0px"
+  marginTop: "2px"
 };
 
 let hideResult = {
