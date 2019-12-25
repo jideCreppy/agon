@@ -4,7 +4,7 @@ import "./App.css";
 
 let displayResult = {
   display: "inherit",
-  marginTop: "10px"
+  marginTop: "0px"
 };
 
 let hideResult = {
@@ -46,7 +46,7 @@ const FilterSearch = ({ filterSourceNames, updateSources }) => {
     <div style={selectFilter}>
       <div className="field">
         <div className="control">
-          <select className="select input is-small" onChange={updateSources}>
+          <select className="select is-small" onChange={updateSources}>
             <option value="filterLabel">Filter Results</option>
               {filterSourceNames.map((result, i) => (
                 <option key={i} value={result}>
