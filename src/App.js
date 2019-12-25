@@ -12,7 +12,8 @@ let hideResult = {
 };
 
 let selectFilter = {
-  marginTop:"5px"
+  marginTop:"7px",
+  width:"30%"
 }
 
 const SearchResults = ({ articles }) => (
@@ -45,7 +46,7 @@ const FilterSearch = ({ filterSourceNames, updateSources }) => {
     <div style={selectFilter}>
       <div className="field">
         <div className="control">
-          <select className="select is-primary" onChange={updateSources}>
+          <select className="select input is-small" onChange={updateSources}>
             <option value="filterLabel">Filter Results</option>
               {filterSourceNames.map((result, i) => (
                 <option key={i} value={result}>
