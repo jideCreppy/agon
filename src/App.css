@@ -43,3 +43,6 @@
   background-color: rgba(244,164,96,.1);
   opacity: 0.94;
 }
+.card-header-title .tag {
+  padding: 13px;
+}

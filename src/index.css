@@ -46,13 +46,13 @@ nav .logo {
 main {
   display: flex;
   width: 100%;
-  height: 70vh;
-  margin: 4rem 0 0 0;
+  /* height: 100vh; */
+  margin: 4rem 0 40px 0;
 }
 
 figcaption {
   position: relative;
-  bottom: 420px;
+  bottom: 63%;
   left:40px;
   background-color:rgba(220, 220, 220, .2);
   width:325px;
@@ -77,6 +77,8 @@ figcaption {
 .image-showcase {
   width: 50%;
   max-width:70%;
+  position: relative;
+  height: 71vh;
 }
 
 .search-form {
@@ -94,6 +96,7 @@ figcaption {
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
+  padding: 0 0 0 2px;
 }
 
 .search-result-item {
@@ -106,6 +109,7 @@ figcaption {
 
 #root {
   margin-top: -17px;
+  position: relative;
 }
 
 
@@ -121,7 +125,7 @@ figcaption {
   background-size: cover;
   box-shadow: 0px 50px 70px rgba(0, 0, 0, 0.3),
     0px 10px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .reflection::after {
@@ -147,4 +151,21 @@ figcaption {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), white);
   z-index: 1;
   border-radius: 7px;
+}
+
+@media (max-width: 768px){
+  .image-showcase, footer {
+    display: none;
+  }
+  .search-form {
+    flex-basis:95%;
+    margin: 0 auto;
+  }
+  nav .logo ~ div {
+     display:none;
+  }
+  nav {
+    justify-content: space-between;
+    padding-left: 10px;
+  }
 }
