@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 let displayResult = {
@@ -15,6 +15,9 @@ let selectFilter = {
   marginTop:"7px",
   width:"30%"
 }
+
+let controller
+let signal
 
 const SearchResults = ({ articles }) => (
   <div className="content search-result">
@@ -61,23 +64,17 @@ const FilterSearch = ({ filterSourceNames, updateSources }) => {
 };
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      apiResults: [],
-      backUpResults: [],
-      totalResults: "",
-      loading: false,
-      filterSourceNames: []
-    };
+  state = {
+    apiResults: [],
+    filterResults: [],
+    totalResults: "",
+    loading: false,
+    filterSourceNames: [],
+    keywords: ''
+  };
 
-    this.beginSearch = this.beginSearch.bind(this);
-    this.filterSourceNames = this.filterSourceNames.bind(this);
-    this.updateSources = this.updateSources.bind(this);
-  }
-
-  filterSourceNames(apiResults) {
+  filterSourceNames = apiResults => {
     let sources = apiResults.map(result => {
       return result.source.name;
     });
@@ -93,11 +90,11 @@ class App extends React.Component {
 
     if(e.target.value === "filterLabel"){
       this.setState({
-        apiResults: this.state.backUpResults
+        apiResults: this.state.filterResults
       });
       return
     }
-    let target = this.state.backUpResults;
+    let target = this.state.filterResults;
     let filteredSources = target.filter(result => {
       return result.source.name === e.target.value;
     });
@@ -106,28 +103,57 @@ class App extends React.Component {
     });
   };
 
-  beginSearch(e) {
+ beginSearch = async e => {
+
     e.preventDefault();
 
+    // if(this.state.loading){
+    //   this.abortFetching();
+    // }
+
+    if (controller !== undefined) {
+      // Cancel the previous request
+      this.abortFetching();
+    }
+
+    if("AbortController" in window) {
+       controller = new AbortController()
+       signal = controller.signal
+    }
+
     this.setState({
-      loading: true
+      loading: true,
+      keywords: this.search.value
     });
 
-    fetch(
-      `https://newsapi.org/v2/top-headlines?q=${e.target.value}&category=sports&pageSize=12&apiKey=f908b2c35b3e4981b5151bc85522f954`
-    )
+
+    await fetch(
+      `https://newsapi.org/v2/top-headlines?q=${this.search.value}&category=sports&pageSize=12&apiKey=f908b2c35b3e4981b5151bc85522f954`, 
+      {
+        method: 'get',
+        signal: signal,
+      })
       .then(data => data.json())
       .then(data => {
         this.setState({
           apiResults: data.articles ? data.articles : [],
           totalResults: data.totalResults,
-          backUpResults: data.articles,
-          loading: false
+          filterResults: data.articles,
+          loading: false,
         });
 
         this.filterSourceNames(this.state.apiResults);
-      });
+      })
+      .catch( error => {
+        console.log(`Error: ${error}`)
+      })
   }
+
+  abortFetching = () => {
+    console.log('Now aborting');
+    controller.abort();
+  }
+  
 
   render() {
     return (
@@ -152,6 +178,7 @@ class App extends React.Component {
                 maxLength="50"
                 type="text"
                 placeholder="keyword"
+                ref={search => this.search = search}
                 onChange={this.beginSearch}/>
               <FilterSearch
                 filterSourceNames={this.state.filterSourceNames}

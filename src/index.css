@@ -112,6 +112,10 @@ figcaption {
   position: relative;
 }
 
+#svgTurbulence {
+  display:none;
+}
+
 
 /* Reflection Styles
 =======================================*/
