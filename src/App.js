@@ -107,12 +107,7 @@ class App extends React.Component {
 
     e.preventDefault();
 
-    // if(this.state.loading){
-    //   this.abortFetching();
-    // }
-
     if (controller !== undefined) {
-      // Cancel the previous request
       this.abortFetching();
     }
 
@@ -158,7 +153,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card no-shadow animated bounceInRight delay-2s">
+        <div className="card no-shadow animated bounceInRight delay-1s">
           <header className="card-header">
             <p className="card-header-title">
               <span className="tag is-success">
@@ -183,7 +178,7 @@ class App extends React.Component {
               <FilterSearch
                 filterSourceNames={this.state.filterSourceNames}
                 updateSources={this.updateSources}/>
-              <p style={{ textAlign: "center" }}>
+              <p style={{ textAlign: "center", fontSize:"14px" }}>
                 {this.state.loading ? "Loading..." : ""}
               </p>
             </div>
