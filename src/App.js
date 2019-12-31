@@ -123,7 +123,7 @@ class App extends React.Component {
 
 
     await fetch(
-      `https://newsapi.org/v2/top-headlines?q=${this.search.value}&category=sports&pageSize=12&apiKey=f908b2c35b3e4981b5151bc85522f954`, 
+      `https://newsapi.org/v2/top-headlines?q=${this.search.value}&category=sports&pageSize=10&apiKey=f908b2c35b3e4981b5151bc85522f954`, 
       {
         method: 'get',
         signal: signal,
