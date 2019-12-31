@@ -40,6 +40,9 @@ nav .logo {
 .nav-links-parent {
   width:500px;
 }
+.nav-logo-parent {
+  margin-left:55px
+}
 .nav-links{
   padding-top:13px;
   list-style: none;
