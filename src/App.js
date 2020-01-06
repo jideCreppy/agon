@@ -1,6 +1,7 @@
 import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
+import {Switch, BrowserRouter as Routers, Router, Link} from "react-router-dom";
 
 let displayResult = {
   display: "inherit",
@@ -16,8 +17,7 @@ let selectFilter = {
   width:"30%"
 }
 
-let controller
-let signal
+let controller,signal
 
 const SearchResults = ({ articles }) => (
   <div className="content search-result">
@@ -145,7 +145,6 @@ class App extends React.Component {
   }
 
   abortFetching = () => {
-    console.log('Now aborting');
     controller.abort();
   }
   
@@ -153,6 +152,30 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Routers>
+          <header>
+          <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+            <div className="nav-logo-parent">
+              <div className="logo">Agon <sup style={{fontSize: "12px"}}>strength, dedication & power.</sup></div>
+            </div>
+            <div className="nav-links-parent">   
+              <ul className="nav-links">  
+                <li><Link to="home">Home</Link></li>
+                <li><Link to="about">About</Link></li>
+                <li><Link to="latest">Latest</Link></li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <main>
+    <section className="image-showcase">
+      <figure className="reflection"></figure>
+      <figcaption>
+        <h1 className="caption-header">Photo by Supremelysab. unsplash.com </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </figcaption>
+    </section>
+    <section class="search-form">
         <div className="card no-shadow animated bounceInRight delay-1s">
           <header className="card-header">
             <p className="card-header-title">
@@ -200,6 +223,9 @@ class App extends React.Component {
             <SearchResults articles={this.state.apiResults} />
           </div>
         </div>
+        </section>
+      </main>
+      </Routers>
       </React.Fragment>
     );
   }
